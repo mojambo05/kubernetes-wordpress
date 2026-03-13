@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: el-meu-web-deployment
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: el-meu-web
+  template:
+    metadata:
+      labels:
+        app: el-meu-web
+    spec:
+      containers:
+      - name: nginx
+        image: nginx:latest
+        ports:
+        - containerPort: 80
